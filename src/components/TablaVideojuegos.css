@@ -1,0 +1,237 @@
+/* ==========================================================================
+   DISEÑO CYBER-GAMER PREMIUM (ALTO CONTRASTE & ULTRA LLAMATIVO)
+   ========================================================================== */
+
+/* Contenedor principal: Efecto tarjeta flotante sobre fondo oscuro profundo */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 30px 0;
+    background: #0f172a;
+    /* Fondo pizarra ultra oscuro */
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(99, 102, 241, 0.15);
+    /* Brillo neón sutil */
+    border: 1px solid #1e293b;
+    scrollbar-width: thin;
+    scrollbar-color: #4f46e5 #0f172a;
+}
+
+/* Estilos generales de la tabla */
+.videojuegos-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    color: #f1f5f9;
+    /* Letras generales en blanco suave de alta visibilidad */
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    text-align: left;
+    min-width: 850px;
+}
+
+/* Encabezados de la tabla (th): Estilo cian eléctrico muy marcado */
+.videojuegos-table th {
+    background-color: #1e293b;
+    /* Fondo th diferenciado */
+    color: #38bdf8;
+    /* Texto Cian Neón súper llamativo */
+    padding: 18px 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    border-bottom: 2px solid #334155;
+}
+
+/* Celdas de contenido (td): Letras grandes y ultra legibles */
+.videojuegos-table td {
+    padding: 18px 20px;
+    border-bottom: 1px solid #1e293b;
+    font-size: 0.95rem;
+    vertical-align: middle;
+    transition: all 0.2s ease;
+}
+
+/* Título del Videojuego: Destacado en Blanco Puro */
+.videojuegos-table td strong {
+    color: #ffffff;
+    /* Contraste máximo */
+    font-size: 1.05rem;
+    font-weight: 700;
+    display: block;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Efecto Hover en las filas: Iluminación inmersiva al pasar el mouse */
+.videojuegos-table tbody tr {
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.videojuegos-table tbody tr:hover {
+    background-color: #1e293b;
+    /* Se ilumina la fila */
+}
+
+/* Badges de Disponibilidad: Colores neón con texto en negro para máxima lectura */
+.status {
+    padding: 6px 14px;
+    border-radius: 8px;
+    /* Estilo bloque moderno gamer */
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Estado: DISPONIBLE (Verde Esmeralda Neón) */
+.status.available {
+    background-color: #10b981;
+    color: #042f1a;
+    /* Texto ultra oscuro sobre fondo brillante = legibilidad 100% */
+}
+
+/* Estado: AGOTADO (Rojo Carmesí Intenso) */
+.status.unavailable {
+    background-color: #ef4444;
+    color: #4c0519;
+    /* Texto ultra oscuro sobre fondo brillante */
+}
+
+/* Contenedor de la barra de progreso */
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Barra de progreso <progress>: Diseño futurista con gradiente */
+progress {
+    width: 130px;
+    height: 12px;
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+}
+
+/* Riel/Fondo de la barra */
+progress::-webkit-progress-bar {
+    background-color: #334155;
+    border-radius: 20px;
+}
+
+/* Relleno Dinámico: Gradiente Neón de Magenta Eléctrico a Violeta */
+progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #d946ef 0%, #8b5cf6 100%);
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(217, 70, 239, 0.5);
+    /* Efecto de brillo de carga */
+}
+
+/* Equivalente para Firefox */
+progress::-moz-progress-bar {
+    background: linear-gradient(90deg, #d946ef 0%, #8b5cf6 100%);
+    border-radius: 20px;
+}
+
+/* Texto del porcentaje: Amarillo Eléctrico Neón (Imposible no verlo) */
+.progress-text {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #eab308;
+    /* Amarillo Neón de alto impacto */
+    text-shadow: 0 0 4px rgba(234, 179, 8, 0.3);
+}
+
+/* Bordes redondeados en las esquinas de la tabla */
+.videojuegos-table tr:first-child th:first-child {
+    border-top-left-radius: 16px;
+}
+
+.videojuegos-table tr:first-child th:last-child {
+    border-top-right-radius: 16px;
+}
+
+.videojuegos-table tr:last-child td:first-child {
+    border-bottom-left-radius: 16px;
+}
+
+.videojuegos-table tr:last-child td:last-child {
+    border-bottom-right-radius: 16px;
+}
+
+/* ==========================================================================
+   ESTILOS PARA EL CONTADOR DE JUEGOS FLOTANTE (ESTILO PREMIUM)
+   ========================================================================== */
+
+/* Contenedor de la cabecera interna para empujar el badge a la derecha */
+.table-header-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 20px 10px 20px;
+    background: #0f172a;
+    /* Mismo color de fondo de tu contenedor oscuro */
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+/* El Badge/Píldora con degradado exacto */
+.total-badge {
+    background: linear-gradient(135deg, #4f46e5 0%, #2563eb 100%);
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 50px;
+    /* Hace el efecto de píldora perfecta */
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    letter-spacing: 0.5px;
+    transition: transform 0.2s ease;
+}
+
+/* Efecto interactivo al pasar el mouse por encima */
+.total-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(79, 70, 229, 0.45);
+}
+
+/* ==========================================================================
+   ESTILOS ADICIONALES PARA LA COLUMNA DE NUMERACIÓN (ID)
+   ========================================================================== */
+
+/* Centrar y darle peso al encabezado ID */
+.videojuegos-table th.column-id {
+    text-align: center;
+    width: 60px;
+    /* Ancho fijo para que no se mueva */
+    color: #a855f7;
+    /* Color morado neón para que resalte del resto */
+    font-weight: 900;
+}
+
+/* Estilo para la celda con el número correlativo */
+.videojuegos-table td.cell-id {
+    text-align: center;
+    font-weight: 800;
+    color: #38bdf8;
+    /* Color cian vibrante, idéntico al estilo gamer de las letras */
+    font-size: 1rem;
+    background-color: rgba(30, 41, 59, 0.3);
+    /* Un fondo sutil para encajonar el número */
+    border-right: 1px solid #1e293b;
+    /* Línea divisoria suave */
+}
+
+/* Asegurar que la esquina superior izquierda se mantenga redondeada con la nueva columna */
+.videojuegos-table tr:first-child th:first-child {
+    border-top-left-radius: 16px;
+}
+
+.videojuegos-table tr:last-child td:first-child {
+    border-bottom-left-radius: 16px;
+}
