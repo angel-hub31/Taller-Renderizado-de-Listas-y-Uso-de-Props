@@ -6,7 +6,7 @@ import { TablaVideojuegos } from './components/TablaVideojuegos';
 import { FormularioVideojuego } from './components/FormularioVideojuego'; 
 import { Navbar } from './components/Navbar'; 
 import { PaginaNoEncontrada } from './components/PaginaNoEncontrada'; 
-
+import './App.css';
 function App() {
   const [videojuegos, setVideojuegos] = useState(data);
 
@@ -34,7 +34,7 @@ function App() {
   return (
     <BrowserRouter>
       <div style={{
-        backgroundColor: '#a7b1de',
+        backgroundColor: '#3b477d',
         minHeight: '100vh',
         padding: '40px 20px',
         fontFamily: 'sans-serif'
@@ -44,14 +44,14 @@ function App() {
 
         <h1 style={{
           textAlign: 'center',
-          color: '#f8fafc', 
+          color: '#04fa83', 
           fontSize: '2.5rem',
           fontWeight: '800',
           letterSpacing: '1px',
           marginBottom: '30px',
           textShadow: '0 0 15px rgba(99, 102, 241, 0.3)'
         }}>
-          🕹️ Tienda de Videojuegos 
+          🕹️ Tienda de Videojuegos
         </h1>
 
         <Routes>
