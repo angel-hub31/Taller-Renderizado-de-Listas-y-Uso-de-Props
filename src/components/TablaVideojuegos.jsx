@@ -49,6 +49,14 @@ export const TablaVideojuegos = ({ listaVideojuegos, onEliminar }) => {
                                     <span className="progress-text">{Math.round(juego.progreso * 100)}%</span>
                                 </div>
                             </td>
+                            <td>
+                                <button onClick={() => navigate('/editar', { state: { videojuego: juego } })}>
+                                    Editar
+                                </button>
+                                <button onClick={() => onEliminar(juego.id)}>
+                                    Eliminar
+                                </button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
