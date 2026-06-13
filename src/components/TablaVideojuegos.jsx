@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import './TablaVideojuegos.css'; 
 
 export const TablaVideojuegos = ({ listaVideojuegos, onEliminar }) => {
@@ -8,7 +8,6 @@ export const TablaVideojuegos = ({ listaVideojuegos, onEliminar }) => {
 
     return (
         <div className="table-container">
-            {/* Cabecera interna de la tabla con el contador dinámico */}
             <div className="table-header-actions">
                 <span className="total-badge">
                     Total: {listaVideojuegos.length} juegos
@@ -18,7 +17,7 @@ export const TablaVideojuegos = ({ listaVideojuegos, onEliminar }) => {
             <table className="videojuegos-table">
                 <thead>
                     <tr>
-                        <th className="column-id">ID</th> {/* <-- Nueva columna ID */}
+                        <th className="column-id">ID</th> 
                         <th>Título</th>
                         <th>Género</th>
                         <th>Plataforma</th>
@@ -32,7 +31,7 @@ export const TablaVideojuegos = ({ listaVideojuegos, onEliminar }) => {
                 <tbody>
                     {listaVideojuegos.map((juego, index) => (
                         <tr key={juego.id}>
-                            <td className="cell-id">{index + 1}</td> {/* <-- Numeración automática */}
+                            <td className="cell-id">{index + 1}</td>
                             <td><strong>{juego.titulo}</strong></td>
                             <td>{juego.genero}</td>
                             <td>{juego.plataforma}</td>
@@ -59,6 +58,7 @@ export const TablaVideojuegos = ({ listaVideojuegos, onEliminar }) => {
                             </td>
                         </tr>
                     ))}
+                    
                 </tbody>
             </table>
         </div>

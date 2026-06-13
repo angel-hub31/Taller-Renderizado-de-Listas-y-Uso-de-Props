@@ -1,0 +1,65 @@
+/* ==========================================================================
+   RESET COMPLETO Y ESTILOS PARA NAVBAR.CSS (CYBERPUNK)
+   ========================================================================== */
+
+/* Forzar el contenedor principal de la barra de navegación */
+nav.navbar-container {
+    background-color: #0b1329 !important; /* Asegura el fondo ultra oscuro */
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 15px 30px !important;
+    border-radius: 12px !important;
+    margin-bottom: 30px !important;
+    border: 1px solid #1e293b !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(99, 102, 241, 0.15) !important;
+}
+
+/* Título de la tienda */
+.navbar-brand {
+    color: #38bdf8 !important; /* Azul cyan eléctrico */
+    font-size: 1.25rem !important;
+    font-weight: bold !important;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.4) !important;
+}
+
+/* Forzar la lista para que sea horizontal y QUITAR los puntos negros de raíz */
+nav.navbar-container ul.navbar-menu {
+    list-style-type: none !important;
+    list-style: none !important;
+    display: flex !important;
+    flex-direction: row !important; /* Lo pone en fila horizontal */
+    gap: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Quitar cualquier viñeta residual en los elementos de la lista */
+nav.navbar-container ul.navbar-menu li {
+    list-style: none !important;
+    list-style-type: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Quitar el color rosa/morado de los enlaces y dar aspecto de botón */
+nav.navbar-container .navbar-link {
+    color: #94a3b8 !important; /* Gris azulado */
+    text-decoration: none !important; /* Quita la línea de abajo */
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    padding: 8px 16px !important;
+    border-radius: 6px !important;
+    transition: all 0.25s ease !important;
+    border: 1px solid transparent !important;
+    display: inline-block !important;
+}
+
+/* Efecto Hover interactivo */
+nav.navbar-container .navbar-link:hover {
+    color: #ffffff !important;
+    background-color: #1e293b !important;
+    border-color: #4f46e5 !important; /* Borde morado neón */
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.5) !important;
+    transform: translateY(-1px);
+}
