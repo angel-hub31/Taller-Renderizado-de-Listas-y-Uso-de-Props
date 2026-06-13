@@ -1,7 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './TablaVideojuegos.css'; 
 
-export const TablaVideojuegos = ({ listaVideojuegos }) => {
+export const TablaVideojuegos = ({ listaVideojuegos, onEliminar }) => {
+
+    const navigate=useNavigate();
+
     return (
         <div className="table-container">
             {/* Cabecera interna de la tabla con el contador dinámico */}
@@ -22,6 +26,7 @@ export const TablaVideojuegos = ({ listaVideojuegos }) => {
                         <th>Precio</th>
                         <th>Disponibilidad</th>
                         <th>Progreso Descarga</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
