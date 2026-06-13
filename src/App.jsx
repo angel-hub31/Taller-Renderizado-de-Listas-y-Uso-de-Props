@@ -1,30 +1,80 @@
+// src/App.jsx
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; 
 import { data } from './data/videojuegos';
 import { TablaVideojuegos } from './components/TablaVideojuegos';
+import { FormularioVideojuego } from './components/FormularioVideojuego'; 
+import { Navbar } from './components/Navbar'; 
+import { PaginaNoEncontrada } from './components/PaginaNoEncontrada'; 
 
 function App() {
   const [videojuegos, setVideojuegos] = useState(data);
-return (
-    <div style={{
-      backgroundColor: '#a7b1de',
-      minHeight: '100vh',
-      padding: '40px 20px',
-      fontFamily: 'sans-serif'
-    }}>
-      <h1 style={{
-        textAlign: 'center',
-        color: '#f8fafc', 
-        fontSize: '2.5rem',
-        fontWeight: '800',
-        letterSpacing: '1px',
-        marginBottom: '30px',
-        textShadow: '0 0 15px rgba(99, 102, 241, 0.3)'
-      }}>
-        🕹️ Tienda de Videojuegos 
-      </h1>
 
-      <TablaVideojuegos listaVideojuegos={videojuegos} />
-    </div>
+  const handleGuardar = (juegoForm) => {
+    if (juegoForm.id) {
+      setVideojuegos(
+        videojuegos.map((juego) => (juego.id === juegoForm.id ? juegoForm : juego))
+      );
+    } else {
+      const nuevoJuego = {
+        ...juegoForm,
+        id: Date.now() 
+      };
+      setVideojuegos([...videojuegos, nuevoJuego]);
+    }
+  };
+
+  const handleEliminar = (id) => {
+    const confirmar = window.confirm('¿Seguro que deseas eliminar este videojuego?');
+    if (confirmar) {
+      setVideojuegos(videojuegos.filter((juego) => juego.id !== id));
+    }
+  };
+
+  return (
+    <BrowserRouter>
+      <div style={{
+        backgroundColor: '#a7b1de',
+        minHeight: '100vh',
+        padding: '40px 20px',
+        fontFamily: 'sans-serif'
+      }}>
+        
+        <Navbar />
+
+        <h1 style={{
+          textAlign: 'center',
+          color: '#f8fafc', 
+          fontSize: '2.5rem',
+          fontWeight: '800',
+          letterSpacing: '1px',
+          marginBottom: '30px',
+          textShadow: '0 0 15px rgba(99, 102, 241, 0.3)'
+        }}>
+          🕹️ Tienda de Videojuegos 
+        </h1>
+
+        <Routes>
+          <Route 
+            path="/" 
+            element={<TablaVideojuegos listaVideojuegos={videojuegos} onEliminar={handleEliminar} />} 
+          />
+          
+          <Route 
+            path="/nuevo" 
+            element={<FormularioVideojuego onGuardar={handleGuardar} />} 
+          />
+          
+          <Route 
+            path="/editar" 
+            element={<FormularioVideojuego onGuardar={handleGuardar} />} 
+          />
+
+          <Route path="*" element={<PaginaNoEncontrada />} />
+        </Routes>
+
+      </div>
+    </BrowserRouter>
   );
 }
 
