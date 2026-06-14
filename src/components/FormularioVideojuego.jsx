@@ -6,9 +6,7 @@ import './FormularioVideojuego.css';
 export const FormularioVideojuego = ({ onGuardar }) => {
     const location = useLocation();
     const navigate = useNavigate();
-
     const juegoAEditar = location.state?.videojuego;
-
     const [formData, setFormData] = useState({
         id: '',
         titulo: '',
@@ -18,6 +16,9 @@ export const FormularioVideojuego = ({ onGuardar }) => {
         precio: '',
         disponible: false,
         progreso: 0
+        //cambio paso 1
+        sinopsis: '',
+        calificacion: ''
     });
 
     useEffect(() => {
@@ -44,13 +45,12 @@ export const FormularioVideojuego = ({ onGuardar }) => {
 
         const juegoGuardar = {
             ...formData,
-            lanzamiento: parseInt(formData.lanzamiento),
+
             precio: parseFloat(formData.precio),
-            progreso: parseFloat(formData.progreso)
+            progreso: parseFloat(formData.progreso),
+            calificacion: parseInt(formData.calificacion)
         };
-
         onGuardar(juegoGuardar);
-
         navigate('/');
     };
 
@@ -69,6 +69,43 @@ export const FormularioVideojuego = ({ onGuardar }) => {
                             onChange={handleChange}
                         />
                     </div>
+
+
+                    <div className="form-group">
+                        <label>Fecha de Lanzamiento:</label>
+                        <input
+                            type="date"
+                            name="lanzamiento"
+                            value={formData.lanzamiento}
+                            onChange={handleChange}
+                            max={new Date().toISOString().split("T")[0]} // Validacion: no fechas futuras
+                        />
+                    </div>
+
+
+                    <div className="form-group">
+                        <label>Sinopsis:</label>
+                        <textarea
+                            name="sinopsis"
+                            value={formData.sinopsis}
+                            onChange={handleChange}
+                        />
+                    </div>
+
+
+                    <div className="form-group">
+                        <label>Calificación de la Crítica (1-100):</label>
+                        <input
+                            type="number"
+                            name="calificacion"
+                            value={formData.calificacion}
+                            onChange={handleChange}
+                            min="1"
+                            max="100"
+                        />
+                    </div>
+
+
 
                     <div className="form-group">
                         <label>Género:</label>
@@ -93,15 +130,7 @@ export const FormularioVideojuego = ({ onGuardar }) => {
                         </select>
                     </div>
 
-                    <div className="form-group">
-                        <label>Año de Lanzamiento:</label>
-                        <input
-                            type="number"
-                            name="lanzamiento"
-                            value={formData.lanzamiento}
-                            onChange={handleChange}
-                        />
-                    </div>
+
 
                     <div className="form-group">
                         <label>Precio ($):</label>
