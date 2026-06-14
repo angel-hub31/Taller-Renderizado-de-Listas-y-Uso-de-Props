@@ -1,14 +1,24 @@
 // src/App.jsx
-import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'; 
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { data } from './data/videojuegos';
 import { TablaVideojuegos } from './components/TablaVideojuegos';
-import { FormularioVideojuego } from './components/FormularioVideojuego'; 
-import { Navbar } from './components/Navbar'; 
-import { PaginaNoEncontrada } from './components/PaginaNoEncontrada'; 
+import { FormularioVideojuego } from './components/FormularioVideojuego';
+import { Navbar } from './components/Navbar';
+import { PaginaNoEncontrada } from './components/PaginaNoEncontrada';
 import './App.css';
+
+
 function App() {
-  const [videojuegos, setVideojuegos] = useState(data);
+  const [videojuegos, setVideojuegos] = useState(() => {
+
+    const guardados = localStorage.getItem('lista_videojuegos');
+    return guardados ? JSON.parse(guardados) : data;
+  });
+
+  useEffect(()=>{
+    localStorage.setItem('lista_videojuegos', JSON.stringify(videojuegos));
+  }, [videojuegos]);
 
   const handleGuardar = (juegoForm) => {
     if (juegoForm.id) {
@@ -18,7 +28,7 @@ function App() {
     } else {
       const nuevoJuego = {
         ...juegoForm,
-        id: Date.now() 
+        id: Date.now()
       };
       setVideojuegos([...videojuegos, nuevoJuego]);
     }
@@ -39,12 +49,12 @@ function App() {
         padding: '40px 20px',
         fontFamily: 'sans-serif'
       }}>
-        
+
         <Navbar />
 
         <h1 style={{
           textAlign: 'center',
-          color: '#04fa83', 
+          color: '#04fa83',
           fontSize: '2.5rem',
           fontWeight: '800',
           letterSpacing: '1px',
@@ -55,19 +65,19 @@ function App() {
         </h1>
 
         <Routes>
-          <Route 
-            path="/" 
-            element={<TablaVideojuegos listaVideojuegos={videojuegos} onEliminar={handleEliminar} />} 
+          <Route
+            path="/"
+            element={<TablaVideojuegos listaVideojuegos={videojuegos} onEliminar={handleEliminar} />}
           />
-          
-          <Route 
-            path="/nuevo" 
-            element={<FormularioVideojuego onGuardar={handleGuardar} />} 
+
+          <Route
+            path="/nuevo"
+            element={<FormularioVideojuego onGuardar={handleGuardar} />}
           />
-          
-          <Route 
-            path="/editar" 
-            element={<FormularioVideojuego onGuardar={handleGuardar} />} 
+
+          <Route
+            path="/editar"
+            element={<FormularioVideojuego onGuardar={handleGuardar} />}
           />
 
           <Route path="*" element={<PaginaNoEncontrada />} />
