@@ -6,7 +6,7 @@ import './FormularioVideojuego.css';
 export const FormularioVideojuego = ({ onGuardar }) => {
     const location = useLocation();
     const navigate = useNavigate();
-    
+
     const juegoAEditar = location.state?.videojuego;
 
     const [formData, setFormData] = useState({
@@ -17,7 +17,7 @@ export const FormularioVideojuego = ({ onGuardar }) => {
         lanzamiento: '',
         precio: '',
         disponible: false,
-        progreso: 0 
+        progreso: 0
     });
 
     useEffect(() => {
@@ -36,7 +36,7 @@ export const FormularioVideojuego = ({ onGuardar }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
         if (!formData.titulo || !formData.genero || !formData.plataforma || !formData.lanzamiento || !formData.precio) {
             alert('Por favor, llena todos los campos.');
             return;
@@ -50,23 +50,23 @@ export const FormularioVideojuego = ({ onGuardar }) => {
         };
 
         onGuardar(juegoGuardar);
-        
+
         navigate('/');
     };
 
-   return (
+    return (
         <div className="form-container-screen">
             <div className="form-card">
                 <h2>{juegoAEditar ? 'Editar Videojuego' : 'Registrar Nuevo Videojuego'}</h2>
-                
+
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label>Título:</label>
-                        <input 
-                            type="text" 
-                            name="titulo" 
-                            value={formData.titulo} 
-                            onChange={handleChange} 
+                        <input
+                            type="text"
+                            name="titulo"
+                            value={formData.titulo}
+                            onChange={handleChange}
                         />
                     </div>
 
@@ -95,45 +95,45 @@ export const FormularioVideojuego = ({ onGuardar }) => {
 
                     <div className="form-group">
                         <label>Año de Lanzamiento:</label>
-                        <input 
-                            type="number" 
-                            name="lanzamiento" 
-                            value={formData.lanzamiento} 
-                            onChange={handleChange} 
+                        <input
+                            type="number"
+                            name="lanzamiento"
+                            value={formData.lanzamiento}
+                            onChange={handleChange}
                         />
                     </div>
 
                     <div className="form-group">
                         <label>Precio ($):</label>
-                        <input 
-                            type="number" 
-                            step="0.01" 
-                            name="precio" 
-                            value={formData.precio} 
-                            onChange={handleChange} 
+                        <input
+                            type="number"
+                            step="0.01"
+                            name="precio"
+                            value={formData.precio}
+                            onChange={handleChange}
                         />
                     </div>
 
                     <div className="form-group">
                         <label>Progreso de Descarga (0 a 1):</label>
-                        <input 
-                            type="number" 
-                            step="0.1" 
-                            min="0" 
-                            max="1" 
-                            name="progreso" 
-                            value={formData.progreso} 
-                            onChange={handleChange} 
+                        <input
+                            type="number"
+                            step="0.1"
+                            min="0"
+                            max="1"
+                            name="progreso"
+                            value={formData.progreso}
+                            onChange={handleChange}
                         />
                     </div>
 
                     <div className="form-group-checkbox">
                         <label>
-                            <input 
-                                type="checkbox" 
-                                name="disponible" 
-                                checked={formData.disponible} 
-                                onChange={handleChange} 
+                            <input
+                                type="checkbox"
+                                name="disponible"
+                                checked={formData.disponible}
+                                onChange={handleChange}
                             />
                             ¿Disponible?
                         </label>

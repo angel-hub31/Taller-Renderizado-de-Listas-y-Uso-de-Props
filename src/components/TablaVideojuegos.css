@@ -1,504 +1,106 @@
+/* src/components/TablaVideojuegos.css */
+
 .table-container {
-
-
-    width:95%;
-
-
-    margin:40px auto;
-
-
-    padding:25px;
-
-
-    background:
-
-    linear-gradient(
-        145deg,
-        #111827,
-        #0f172a
-    );
-
-
-    border-radius:22px;
-
-
-    box-sizing:border-box;
-
-
-    overflow:hidden;
-
-
-    box-shadow:
-
-    0 20px 50px rgba(0,0,0,.45);
-
-
+    width: 98%;
+    margin: 30px auto;
+    padding: 30px;
+    background: linear-gradient(145deg, #111827, #0f172a);
+    border-radius: 22px;
+    box-sizing: border-box;
+    overflow-x: auto; /* Permite scroll horizontal en pantallas pequeñas */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .45);
 }
-
-
-
-
-
-/* TOTAL */
-
 
 .table-header-actions {
-
-
-    margin-bottom:20px;
-
-
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: flex-end;
 }
-
 
 .total-badge {
-
-
-    display:inline-block;
-
-
-    background:
-
-    linear-gradient(
-        135deg,
-        #2563eb,
-        #4f46e5
-    );
-
-
-    color:white;
-
-
-    padding:10px 20px;
-
-
-    border-radius:25px;
-
-
-    font-weight:900;
-
-
-    font-size:14px;
-
-
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 900;
+    font-size: 14px;
 }
-
-
-
-
-
-
-/* TABLA */
-
 
 .videojuegos-table {
-
-
-    width:100%;
-
-
-    border-collapse:collapse;
-
-
-    table-layout:fixed;
-
-
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Mantiene las celdas con el ancho definido */
 }
-
-
-
-
-
-/* CABECERA */
-
 
 .videojuegos-table th {
-
-
-    padding:14px 8px;
-
-
-    background:#1e293b;
-
-
-    color:#38bdf8;
-
-
-    font-size:12px;
-
-
-    text-transform:uppercase;
-
-
-    letter-spacing:.5px;
-
-
+    padding: 16px 8px;
+    background: #1e293b;
+    color: #38bdf8;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
 }
-
-
-
-
-/* CELDAS */
-
 
 .videojuegos-table td {
-
-
-    padding:14px 8px;
-
-
-    color:#e2e8f0;
-
-
-    text-align:center;
-
-
-    font-size:13px;
-
-
-    border-bottom:
-
-    1px solid #334155;
-
-
-    word-wrap:break-word;
-
-
+    padding: 12px 8px;
+    color: #e2e8f0;
+    text-align: center;
+    font-size: 13px;
+    border-bottom: 1px solid #334155;
+    vertical-align: middle;
+    word-wrap: break-word;
 }
 
+/* --- REPARTO PROPORCIONAL DE COLUMNAS (TOTAL 100%) --- */
+.videojuegos-table th:nth-child(1), .videojuegos-table td:nth-child(1) { width: 8%; }  /* Portada */
+.videojuegos-table th:nth-child(2), .videojuegos-table td:nth-child(2) { width: 18%; } /* Título */
+.videojuegos-table th:nth-child(3), .videojuegos-table td:nth-child(3) { width: 12%; } /* Género */
+.videojuegos-table th:nth-child(4), .videojuegos-table td:nth-child(4) { width: 14%; } /* Plataforma */
+.videojuegos-table th:nth-child(5), .videojuegos-table td:nth-child(5) { width: 6%; }  /* Año */
+.videojuegos-table th:nth-child(6), .videojuegos-table td:nth-child(6) { width: 7%; }  /* Precio */
+.videojuegos-table th:nth-child(7), .videojuegos-table td:nth-child(7) { width: 12%; } /* Disponibilidad */
+.videojuegos-table th:nth-child(8), .videojuegos-table td:nth-child(8) { width: 12%; } /* Progreso */
+.videojuegos-table th:nth-child(9), .videojuegos-table td:nth-child(9) { width: 11%; } /* Acciones */
 
-
-
-/* HOVER */
-
-
-.videojuegos-table tbody tr:hover {
-
-
-    background:#1e293b;
-
-
+/* --- ESTILOS DE LA IMAGEN --- */
+.cell-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none !important; /* Limpia el borde de la celda si es necesario */
 }
 
-
-
-
-
-/* TITULO */
-
-
-.videojuegos-table strong {
-
-
-    color:white;
-
-
+.game-thumbnail {
+    width: 45px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    display: block;
 }
 
-
-
-
-
-/* ==================================================
-   DISTRIBUCION DE COLUMNAS
-================================================== */
-
-
-.videojuegos-table th:nth-child(1),
-.videojuegos-table td:nth-child(1){
-
-    width:5%;
-
-}
-
-
-
-.videojuegos-table th:nth-child(2),
-.videojuegos-table td:nth-child(2){
-
-    width:14%;
-
-}
-
-
-
-.videojuegos-table th:nth-child(3),
-.videojuegos-table td:nth-child(3){
-
-    width:12%;
-
-}
-
-
-
-.videojuegos-table th:nth-child(4),
-.videojuegos-table td:nth-child(4){
-
-    width:15%;
-
-}
-
-
-
-.videojuegos-table th:nth-child(5),
-.videojuegos-table td:nth-child(5){
-
-    width:7%;
-
-}
-
-
-
-.videojuegos-table th:nth-child(6),
-.videojuegos-table td:nth-child(6){
-
-    width:8%;
-
-}
-
-
-
-.videojuegos-table th:nth-child(7),
-.videojuegos-table td:nth-child(7){
-
-    width:12%;
-
-}
-
-
-
-.videojuegos-table th:nth-child(8),
-.videojuegos-table td:nth-child(8){
-
-    width:12%;
-
-}
-
-
-
-.videojuegos-table th:nth-child(9),
-.videojuegos-table td:nth-child(9){
-
-    width:15%;
-
-}
-
-
-
-
-
-/* ESTADOS */
-
-
+/* --- ELEMENTOS DE TABLA --- */
 .status {
-
-
-    padding:7px 12px;
-
-
-    border-radius:20px;
-
-
-    font-size:12px;
-
-
-    font-weight:900;
-
-
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: bold;
 }
-
-
-
-
-.available {
-
-
-    color:#22c55e;
-
-
-    border:1px solid #22c55e;
-
-
-    background:
-
-    rgba(34,197,94,.15);
-
-
-}
-
-
-
-
-.unavailable {
-
-
-    color:#ef4444;
-
-
-    border:1px solid #ef4444;
-
-
-    background:
-
-    rgba(239,68,68,.15);
-
-
-}
-
-
-
-
-
-
-/* PROGRESO */
-
-
-.progress-container {
-
-
-    display:flex;
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
-    gap:6px;
-
-
-}
-
-
-
-
-progress {
-
-
-    width:80px;
-
-
-    height:10px;
-
-
-}
-
-
-
-
-
-.progress-text {
-
-
-    color:white;
-
-
-    font-weight:bold;
-
-
-    font-size:12px;
-
-
-}
-
-
-
-
-
-
-/* BOTONES */
-
+.available { color: #22c55e; border: 1px solid #22c55e; }
+.unavailable { color: #ef4444; border: 1px solid #ef4444; }
+
+.progress-container { display: flex; align-items: center; justify-content: center; gap: 5px; }
+progress { width: 50px; height: 6px; }
 
 .videojuegos-table button {
-
-
-    padding:7px 10px;
-
-
-    margin:2px;
-
-
-    border:none;
-
-
-    border-radius:8px;
-
-
-    color:white;
-
-
-    font-size:12px;
-
-
-    font-weight:800;
-
-
-    cursor:pointer;
-
-
+    padding: 5px 10px;
+    font-size: 11px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    margin: 2px;
+    color: white;
 }
-
-
-
-
-.videojuegos-table button:first-child {
-
-
-    background:#2563eb;
-
-
-}
-
-
-
-.videojuegos-table button:last-child {
-
-
-    background:#ef4444;
-
-
-}
-
-
-
-.videojuegos-table button:hover {
-
-
-    transform:translateY(-2px);
-
-
-}
-
-
-
-
-
-/* ==================================================
-   PANTALLAS PEQUEÑAS
-================================================== */
-
-
-@media(max-width:900px){
-
-
-    .table-container{
-
-
-        overflow-x:auto;
-
-
-    }
-
-
-
-    .videojuegos-table{
-
-
-        min-width:800px;
-
-
-    }
-
-
-}
+.videojuegos-table button:first-child { background: #2563eb; }
+.videojuegos-table button:last-child { background: #ef4444; }

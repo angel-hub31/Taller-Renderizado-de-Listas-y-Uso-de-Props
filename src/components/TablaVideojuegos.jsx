@@ -1,10 +1,11 @@
+// src/components/TablaVideojuegos.jsx
 import React from 'react';
-import { useNavigate,Link } from 'react-router-dom';
-import './TablaVideojuegos.css'; 
+import { useNavigate } from 'react-router-dom';
+import './TablaVideojuegos.css';
 
 export const TablaVideojuegos = ({ listaVideojuegos, onEliminar }) => {
 
-    const navigate=useNavigate();
+    const navigate = useNavigate();
 
     return (
         <div className="table-container">
@@ -17,26 +18,37 @@ export const TablaVideojuegos = ({ listaVideojuegos, onEliminar }) => {
             <table className="videojuegos-table">
                 <thead>
                     <tr>
-                        <th className="column-id">ID</th> 
+                        <th className="column-img">Portada</th>
                         <th>Título</th>
                         <th>Género</th>
                         <th>Plataforma</th>
                         <th>Año</th>
                         <th>Precio</th>
                         <th>Disponibilidad</th>
-                        <th>Progreso Descarga</th>
+                        <th>Progreso</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {listaVideojuegos.map((juego, index) => (
+                    {listaVideojuegos.map((juego) => (
                         <tr key={juego.id}>
-                            <td className="cell-id">{index + 1}</td>
+                            <td className="cell-img">
+                                <img
+                                    src={juego.imagen}
+                                    alt={juego.titulo}
+                                    className="game-thumbnail"
+                                    onError={(e) => {
+                                        e.target.src = '/placeholder.png'; 
+                                        e.target.style.opacity = '0.5';
+                                    }}
+                                />
+                            </td>
+
                             <td><strong>{juego.titulo}</strong></td>
                             <td>{juego.genero}</td>
                             <td>{juego.plataforma}</td>
                             <td>{juego.lanzamiento}</td>
-                            <td>${juego.precio.toFixed(2)}</td>
+                            <td>${parseFloat(juego.precio).toFixed(2)}</td>
                             <td>
                                 <span className={`status ${juego.disponible ? 'available' : 'unavailable'}`}>
                                     {juego.disponible ? 'Disponible' : 'Agotado'}
@@ -58,7 +70,6 @@ export const TablaVideojuegos = ({ listaVideojuegos, onEliminar }) => {
                             </td>
                         </tr>
                     ))}
-                    
                 </tbody>
             </table>
         </div>

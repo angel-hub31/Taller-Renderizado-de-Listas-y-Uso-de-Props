@@ -7,7 +7,8 @@ export const data = [
         lanzamiento: 2023,
         precio: 59.99,
         disponible: true,
-        progreso: 0.85
+        progreso: 0.85,
+        imagen: "/imagenes/zelda.jpg"
     },
     {
         id: 2,
@@ -17,7 +18,8 @@ export const data = [
         lanzamiento: 2013,
         precio: 29.99,
         disponible: true,
-        progreso: 1.00
+        progreso: 1.00,
+        imagen: "/imagenes/grand.avif"
     },
     {
         id: 3,
@@ -27,7 +29,8 @@ export const data = [
         lanzamiento: 2022,
         precio: 49.99,
         disponible: false,
-        progreso: 0.35
+        progreso: 0.35,
+        imagen: "/imagenes/elde.avif"
     },
     {
         id: 4,
@@ -37,6 +40,8 @@ export const data = [
         lanzamiento: 2011,
         precio: 19.99,
         disponible: true,
-        progreso: 0.60
-    }
+        progreso: 0.60,
+        imagen: "/imagenes/minecraft.jpg"
+    },
+    
 ];
