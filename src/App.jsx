@@ -1,4 +1,6 @@
 // src/App.jsx
+
+import { Toaster } from 'react-hot-toast';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { data } from './data/videojuegos';
@@ -16,7 +18,7 @@ function App() {
     return guardados ? JSON.parse(guardados) : data;
   });
 
-  useEffect(()=>{
+  useEffect(() => {
     localStorage.setItem('lista_videojuegos', JSON.stringify(videojuegos));
   }, [videojuegos]);
 
@@ -49,6 +51,7 @@ function App() {
         padding: '40px 20px',
         fontFamily: 'sans-serif'
       }}>
+        <Toaster position="top-right" reverseOrder={false} />
 
         <Navbar />
 

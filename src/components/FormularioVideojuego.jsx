@@ -1,4 +1,6 @@
 // src/components/FormularioVideojuego.jsx
+import toast from 'react-hot-toast';
+
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './FormularioVideojuego.css';
@@ -61,6 +63,15 @@ export const FormularioVideojuego = ({ onGuardar }) => {
                 progreso: parseFloat(formData.progreso),
                 calificacion: parseInt(formData.calificacion)
             });
+
+            toast.success('¡Videojuego guardado exitosamente!', {
+                duration: 3000,
+                style: {
+                    background: '#04fa83',
+                    color: '#fff',
+                },
+                });
+
             navigate('/')
         }
 };
