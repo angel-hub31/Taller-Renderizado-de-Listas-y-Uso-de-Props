@@ -1,204 +1,133 @@
- Fondo y centrado general */
+/* Paleta basada en tu diseño: Fondo #3b477d, Verde #04fa83 */
+:root {
+    --primary-bg: #3b477d;
+    --accent-color: #04fa83;
+    --text-light: #ffffff;
+    --input-bg: rgba(255, 255, 255, 0.1);
+}
+
 .form-container-screen {
-    min-height: calc(100vh - 120px);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 30px;
-
-    font-family: 'Plus Jakarta Sans', 
-                 system-ui,
-                 -apple-system,
-                 sans-serif;
-    background:
-        radial-gradient(circle at top,
-        rgba(56,189,248,0.12),
-        transparent 40%);
+    padding: 20px;
+    background-color: var(--primary-bg);
+    /* Sincronizado con App.jsx */
+    min-height: 100vh;
 }
 
 .form-card {
-    width:100%;
-    max-width:560px;
-    background:
-    linear-gradient(
-        145deg,
-        #111827,
-        #0f172a
-    );
-
-    border-radius:24px;
-    padding:40px;
-    border:1px solid rgba(148,163,184,0.15);
-    box-shadow:
-    0 25px 60px rgba(0,0,0,.55),
-    inset 0 1px 0 rgba(255,255,255,.05);
-    backdrop-filter: blur(12px);
-    animation:
-    aparecer .5s ease;
-
+    background: rgba(255, 255, 255, 0.05);
+    /* Cristalino sutil */
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-@keyframes aparecer {
-    from{
-        opacity:0;
-        transform:
-        translateY(30px);
-    }
-
-    to{
-        opacity:1;
-        transform:
-        translateY(0);
-    }
-
-}
-
-.form-card h2 {
-    text-align:center;
-    margin:0 0 35px;
-    font-size:1.8rem;
-    font-weight:900;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    color:#38bdf8;
-    text-shadow:
-    0 0 15px
-    rgba(56,189,248,.45);
+h2 {
+    font-family: 'Inter', sans-serif;
+    color: var(--accent-color);
+    /* Verde vibrante */
+    margin-bottom: 1.8rem;
+    text-align: center;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(4, 250, 131, 0.2);
 }
 
 .form-group {
-    display:flex;
-    flex-direction:column;
-    margin-bottom:22px;
-}
-.form-group label {
-    margin-bottom:9px;
-    color:#cbd5e1;
-    font-size:.82rem;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:1px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
 }
 
-.form-card input,
-.form-card select {
-    width:100%;
-    padding:14px 16px;
-    border-radius:12px;
-    background:#1e293b;
-    border:
-    1px solid #334155;
-    color:white;
-    font-size:.95rem;
-    font-weight:500;
-    transition:.3s ease;
-    box-sizing:border-box;
-}
-.form-card input:hover,
-.form-card select:hover{
-    border-color:#38bdf8;
-}
-.form-card input:focus,
-.form-card select:focus{
-    outline:none;
-    border-color:#8b5cf6;
-    background:#172033;
-    box-shadow:
-    0 0 18px
-    rgba(139,92,246,.35);
-    transform:
-    translateY(-2px);
+label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 0.6rem;
+    opacity: 0.9;
 }
 
-.form-card option {
-    background:#0f172a;
-    color:white;
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 14px;
+    background: var(--input-bg);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    color: var(--text-light);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
 }
 
-.game-thumbnail {
-    width: 50px;       /* Tamaño ajustado para la tabla */
-    height: 50px;
-    object-fit: cover; /* Mantiene la proporción sin deformar la imagen */
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.form-group-checkbox {
-    margin:28px 0;
+/* Foco con el color verde de tu título */
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 10px rgba(4, 250, 131, 0.2);
 }
 
-.form-group-checkbox label {
-    display:flex;
-    align-items:center;
-    gap:12px;
-    cursor:pointer;
-    color:#10b981;
-    font-weight:800;
-    text-transform:uppercase;
-    font-size:.9rem;
-}
-.form-group-checkbox input {
-    width:20px;
-    height:20px;
-    accent-color:#10b981;
-    cursor:pointer;
+textarea {
+    min-height: 100px;
+    resize: vertical;
 }
 
-.form-card button {
-    width:100%;
-    padding:15px;
-    border:none;
-    border-radius:14px;
-    cursor:pointer;
-    color:white;
-    font-size:1rem;
-    font-weight:900;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    background:
-    linear-gradient(
-    135deg,
-    #6366f1,
-    #2563eb
-    );
-    box-shadow:
-    0 10px 25px
-    rgba(37,99,235,.35);
-    transition:.3s ease;
+textarea:focus {
+    min-height: 150px;
+}
 
+.error-text {
+    color: #ff6b6b;
+    /* Un rojo que contrasta bien con el azul */
+    font-size: 0.75rem;
+    margin-top: 6px;
+    animation: fadeIn 0.4s ease-out;
 }
-.form-card button:hover {
-    transform:
-    translateY(-4px);
-    box-shadow:
-    0 15px 35px
-    rgba(56,189,248,.45);
-    background:
-    linear-gradient(
-    135deg,
-    #8b5cf6,
-    #2563eb
-    );
 
-}
-.form-card button:active {
-    transform:
-    scale(.97);
-}
-@media(max-width:600px){
-    .form-container-screen{
-        padding:15px;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
     }
 
-    .form-card{
-        padding:25px;
-        border-radius:18px;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
-    .form-card h2{
-        font-size:1.35rem;
-    }
+}
 
-    .form-card input,
-    .form-card select{
-        padding:12px;
+button {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--accent-color);
+    /* Verde vibrante */
+    color: var(--primary-bg);
+    /* Azul profundo para contraste */
+    border: none;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    filter: brightness(1.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(4, 250, 131, 0.3);
+}
+
+@media (max-width: 480px) {
+    .form-card {
+        padding: 1.5rem;
     }
 }
