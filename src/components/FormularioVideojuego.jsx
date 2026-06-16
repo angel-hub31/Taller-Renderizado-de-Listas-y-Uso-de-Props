@@ -25,18 +25,18 @@ export const FormularioVideojuego = ({ onGuardar }) => {
     const [errores, setErrores] = useState({});
 
     useEffect(() => {
-        if (juegoAEditar) { 
-            setFormData(juegoAEditar); 
+        if (juegoAEditar) {
+            setFormData(juegoAEditar);
         }
     }, [juegoAEditar]);
 
     const validarFormulario = () => {
         let nuevosErrores = {};
-        
+
         if (!formData.titulo || formData.titulo.trim().length === 0) {
             nuevosErrores.titulo = "El título es obligatorio";
         }
-        
+
         if (!formData.sinopsis || formData.sinopsis.length < 10) {
             nuevosErrores.sinopsis = "La sinopsis debe tener al menos 10 caracteres";
         }
@@ -44,11 +44,11 @@ export const FormularioVideojuego = ({ onGuardar }) => {
         if (!formData.genero) nuevosErrores.genero = "Selecciona un género";
         if (!formData.plataforma) nuevosErrores.plataforma = "Selecciona una plataforma";
         if (!formData.lanzamiento) nuevosErrores.lanzamiento = "La fecha es obligatoria";
-        
+
         if (!formData.precio || parseFloat(formData.precio) <= 0) {
             nuevosErrores.precio = "El precio debe ser mayor a 0";
         }
-        
+
         const calif = parseInt(formData.calificacion);
         if (isNaN(calif) || calif < 1 || calif > 100) {
             nuevosErrores.calificacion = "La calificación debe ser entre 1 y 100";
@@ -83,6 +83,7 @@ export const FormularioVideojuego = ({ onGuardar }) => {
     };
 
     return (
+
         <div className="form-container-screen">
             <div className="form-card">
                 <h2>{juegoAEditar ? 'Editar Videojuego' : 'Registrar Nuevo Videojuego'}</h2>
@@ -91,6 +92,18 @@ export const FormularioVideojuego = ({ onGuardar }) => {
                         <label>Título:</label>
                         <input type="text" name="titulo" value={formData.titulo} onChange={handleChange} />
                         {errores.titulo && <span className="error-text">{errores.titulo}</span>}
+                    </div>
+
+                    <div className="form-group">
+                        <label>Plataforma:</label>
+                        <select name="plataforma" value={formData.plataforma} onChange={handleChange}>
+                            <option value="">-- Selecciona --</option>
+                            <option value="PC">PC</option>
+                            <option value="PlayStation">PlayStation</option>
+                            <option value="Xbox">Xbox</option>
+                            <option value="Nintendo">Nintendo</option>
+                        </select>
+                        {errores.plataforma && <span className="error-text">{errores.plataforma}</span>}
                     </div>
 
                     <div className="form-group">

@@ -21,6 +21,8 @@ export const TablaVideojuegos = ({ listaVideojuegos, onEliminar }) => {
                         <th className="column-img">Portada</th>
                         <th>Título</th>
                         <th>Género</th>
+                        <th>Sinopsis</th>      {/* Nueva Columna */}
+                        <th>Calificación</th>  {/* Nueva Columna */}
                         <th>Plataforma</th>
                         <th>Año</th>
                         <th>Precio</th>
@@ -46,6 +48,11 @@ export const TablaVideojuegos = ({ listaVideojuegos, onEliminar }) => {
 
                             <td><strong>{juego.titulo}</strong></td>
                             <td>{juego.genero}</td>
+                            
+                            {/* Visualización de los nuevos campos */}
+                            <td>{juego.sinopsis ? juego.sinopsis.substring(0, 30) + '...' : 'N/A'}</td>
+                            <td>{juego.calificacion ? `${juego.calificacion}/100` : 'N/A'}</td>
+                            
                             <td>{juego.plataforma}</td>
                             <td>{juego.lanzamiento}</td>
                             <td>${parseFloat(juego.precio).toFixed(2)}</td>
